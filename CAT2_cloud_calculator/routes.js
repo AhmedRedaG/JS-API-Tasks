@@ -24,13 +24,13 @@ function solveRoutes(req, res) {
     return res.end(
       JSON.stringify({
         result: result || "Cannot divide by zero",
-        done: true && Boolean(result),
+        done: Boolean(result),
       })
     );
   }
 
   res.writeHead(400, { "Content-Type": "application/json" });
-  return res.end(JSON.stringify({ result: "Bad URL", done: false }));
+  return res.end(JSON.stringify({ result: "Bad request", done: false }));
 }
 
 module.exports = solveRoutes;
